@@ -1,0 +1,12 @@
+name: dev
+stack:
+  - groups
+  - resources
+  - templates
+snowflake:
+  account: "{{ env.SNOWFLAKE_ACCOUNT}}"
+  username: "{{ env.SNOWFLAKE_USER}}"
+  password: "{{ env.SNOWFLAKE_PASSWORD}}"
+  role: "{{ env.SNOWFLAKE_ROLE}}"
+  warehouse: "{{ env.SNOWFLAKE_WAREHOUSE}}"
+  database: "{{ env.SNOWFLAKE_DATABASE}}"

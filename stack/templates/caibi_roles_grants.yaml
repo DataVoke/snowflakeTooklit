@@ -1,0 +1,40 @@
+roles:
+  - name: "fr_{{ env }}_ingestion"
+  - name: "fr_{{ env }}_data_engineer"
+  - name: "fr_{{ env }}_analyst"
+  - name: "fr_{{ env }}_dbt"
+  - name: "dr_{{ env }}_raw_rw"
+  - name: "dr_{{ env }}_dw_rw"
+  - name: "dr_{{ env }}_dw_ro"
+
+roleGrants:
+  - name: "fr_{{ env }}_ingestion"
+    toRoles:
+      - sysadmin      
+  - name: "fr_{{ env }}_dbt"
+    toRoles:
+      - sysadmin   
+  - name: "fr_{{ env }}_data_engineer"
+    toRoles:
+      - sysadmin                         
+  - name: "dr_{{ env }}_raw_rw"
+    toRoles:
+      - "fr_{{ env }}_ingestion"
+      - "fr_{{ env }}_dbt"
+      - "fr_{{ env }}_data_engineer"
+  - name: "dr_{{ env }}_dw_rw"
+    toRoles:
+      - "fr_{{ env }}_dbt"
+      - "fr_{{ env }}_data_engineer"
+  - name: "dr_{{ env }}_dw_ro"
+    toRoles:
+      - "fr_{{ env }}_analyst"
+  - name: "fr_{{ env }}_data_engineer"
+    toUsers:
+      - ERIC_HAMERS
+      - NEELIMA_CHENNUPATI          
+
+      
+
+
+

@@ -1,0 +1,380 @@
+resourceMonitors:
+  - name: bi_dev_rm
+    creditQuota: 200
+    startTimestamp: immediately
+    frequency: monthly
+    notifyUsers:
+     # - EVAN_GUTZWILLER
+     # - ERIC_HAMERS
+      - NEELIMA_CHENNUPATI
+
+    triggers:
+      - threshold: 75
+        action: notify
+      - threshold: 100
+        action: suspend
+      - threshold: 110
+        action: suspend_immediate
+
+  - name: prod_bi_ingest_rm
+    creditQuota: 200
+    startTimestamp: immediately
+    frequency: monthly
+    notifyUsers:
+     # - EVAN_GUTZWILLER
+     # - ERIC_HAMERS
+      - NEELIMA_CHENNUPATI
+
+    triggers:
+      - threshold: 75
+        action: notify
+      - threshold: 100
+        action: suspend
+      - threshold: 110
+        action: suspend_immediate
+
+  - name: prod_bi_transform_rm
+    creditQuota: 200
+    startTimestamp: immediately
+    frequency: monthly
+    notifyUsers:
+     # - EVAN_GUTZWILLER
+     # - ERIC_HAMERS
+      - NEELIMA_CHENNUPATI
+
+    triggers:
+      - threshold: 75
+        action: notify
+      - threshold: 100
+        action: suspend
+      - threshold: 110
+        action: suspend_immediate
+
+  - name: prod_bi_rm
+    creditQuota: 200
+    startTimestamp: immediately
+    frequency: monthly
+    notifyUsers:
+     # - EVAN_GUTZWILLER
+     # - ERIC_HAMERS
+      - NEELIMA_CHENNUPATI
+
+    triggers:
+      - threshold: 75
+        action: notify
+      - threshold: 100
+        action: suspend
+      - threshold: 110
+        action: suspend_immediate
+
+warehouses:
+  - name: bi_transform_wh
+    properties:
+      warehouse_size: xsmall
+      resource_monitor: bi_dev_rm
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+      warehouse_type: standard
+      min_cluster_count: 1
+      max_cluster_count: 1
+      #scaling_policy: economy
+      enable_query_acceleration: false
+      comment: Non-Prod warehouse for transformation process
+
+  - name: bi_ingest_wh
+    properties:
+      warehouse_size: xsmall
+      resource_monitor: bi_dev_rm
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+      warehouse_type: standard
+      min_cluster_count: 1
+      max_cluster_count: 1
+      #scaling_policy: economy
+      enable_query_acceleration: false
+      comment: Non-Prod warehouse for fivetran ingestion process
+
+  - name: prod_bi_transform_wh
+    properties:
+      warehouse_size: xsmall
+      resource_monitor: prod_bi_transform_rm
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+      warehouse_type: standard
+      min_cluster_count: 1
+      max_cluster_count: 1
+      #scaling_policy: economy
+      enable_query_acceleration: false
+      comment: Prod warehouse for transformation process
+
+  - name: prod_bi_ingest_wh
+    properties:
+      warehouse_size: xsmall
+      resource_monitor: prod_bi_ingest_rm
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+      warehouse_type: standard
+      min_cluster_count: 1
+      max_cluster_count: 1
+      #scaling_policy: economy
+      enable_query_acceleration: false
+      comment: Prod warehouse for fivetran ingestion process
+
+  - name: prod_bi_wh
+    properties:
+      warehouse_size: xsmall
+      resource_monitor: prod_bi_rm
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+      warehouse_type: standard
+      min_cluster_count: 1
+      max_cluster_count: 1
+      #scaling_policy: economy
+      enable_query_acceleration: false
+      comment: Prod warehouse for BI users
+
+roles:
+  - name: fr_admin
+
+roleGrants:
+  - name: fr_admin
+    toRoles:
+      - sysadmin
+  - name: fr_admin
+    toUsers:      
+      - EVAN_GUTZWILLER
+  - name: "fr_dev_ingestion"
+    toUsers:
+      - FIVETRAN_USER      
+  - name: "fr_dev_ingestion"
+    toUsers:
+      - FIVETRAN_USER              
+  - name: "fr_prod_ingestion"
+    toUsers:
+      - FIVETRAN_PROD_USER
+  - name: "fr_dev_dbt"
+    toUsers:
+      - CICD_SVC_USER_NONPROD      
+  - name: "fr_prod_dbt"
+    toUsers:
+      - CICD_SVC_USER_PROD
+
+privilegeGrants:
+  # privilege grants to the ALERT_ADMIN role to manage alerts
+#Dev Environment
+  - objectType: database
+    objectName: DEV_BI_DW
+    roleName: dr_dev_dw_ro
+    privilege:
+      - usage
+  - objectType: schema
+    objectName: DEV_BI_RAW.SALESFORCE
+    roleName: dr_dev_raw_rw
+    privilege:
+      - all privileges
+  - objectType: schema
+    objectName: DEV_BI_RAW.UKG
+    roleName: dr_dev_raw_rw
+    privilege:
+      - all privileges      
+  - objectType: schema
+    objectName: DEV_BI_RAW.SAGEINTACCT
+    roleName: dr_dev_raw_rw
+    privilege:
+      - all privileges                
+  - objectType: schema
+    objectName: DEV_BI_RAW.MYSQL_PORTAL
+    roleName: dr_dev_raw_rw
+    privilege:
+      - all privileges                  
+  - objectType: schema
+    objectName: DEV_BI_RAW.MYSQL_PSATOOLS
+    roleName: dr_dev_raw_rw
+    privilege:
+      - all privileges                        
+  - objectType: schema
+    objectName: DEV_BI_DW.CONSOLIDATION
+    roleName: dr_dev_dw_rw
+    privilege:
+      - all privileges
+  - objectType: schema
+    objectName: DEV_BI_DW.DATACONSUMPTION
+    roleName: dr_dev_dw_rw
+    privilege:
+      - all privileges  
+  - objectType: schema
+    objectName: DEV_BI_DW.CONSOLIDATION
+    roleName: dr_dev_dw_ro
+    privilege:
+      - usage
+    destroy: true
+  - objectType: schema
+    objectName: DEV_BI_DW.DATACONSUMPTION
+    roleName: dr_dev_dw_ro
+    privilege:
+      - usage
+  - privilege: select
+    objectType: table
+    objectName: DEV_BI_DW.DATACONSUMPTION
+    roleName: dr_dev_dw_ro
+    future: true
+
+  - objectType: table
+    objectName: DEV_BI_DW.DATACONSUMPTION.TEST_ANOTHERROLE_SIGNMA
+    roleName: dr_dev_dw_ro
+    privilege:
+      - select
+    
+#End-Dev Environment      
+#Test Environment
+  - objectType: schema
+    objectName: TEST_BI_RAW.SALESFORCE
+    roleName: dr_test_raw_rw
+    privilege:
+      - all privileges
+  - objectType: schema
+    objectName: TEST_BI_RAW.UKG
+    roleName: dr_test_raw_rw
+    privilege:
+      - all privileges      
+  - objectType: schema
+    objectName: TEST_BI_RAW.SAGEINTACCT
+    roleName: dr_test_raw_rw
+    privilege:
+      - all privileges                
+  - objectType: schema
+    objectName: TEST_BI_RAW.MYSQL_PORTAL
+    roleName: dr_test_raw_rw
+    privilege:
+      - all privileges                  
+  - objectType: schema
+    objectName: TEST_BI_RAW.MYSQL_PSATOOLS
+    roleName: dr_test_raw_rw
+    privilege:
+      - all privileges                        
+  - objectType: schema
+    objectName: TEST_BI_DW.CONSOLIDATION
+    roleName: dr_test_dw_rw
+    privilege:
+      - all privileges
+  - objectType: schema
+    objectName: TEST_BI_DW.DATACONSUMPTION
+    roleName: dr_test_dw_rw
+    privilege:
+      - all privileges  
+  - objectType: schema
+    objectName: TEST_BI_DW.CONSOLIDATION
+    roleName: dr_test_dw_ro
+    privilege:
+      - usage
+    destroy: true
+  - objectType: schema
+    objectName: TEST_BI_DW.DATACONSUMPTION
+    roleName: dr_test_dw_ro
+    privilege:
+      - usage 
+#End-Test Environment  
+
+#Prod Environment
+  - objectType: schema
+    objectName: PROD_BI_RAW.SALESFORCE
+    roleName: dr_prod_raw_rw
+    privilege:
+      - all privileges
+  - objectType: schema
+    objectName: PROD_BI_RAW.UKG
+    roleName: dr_prod_raw_rw
+    privilege:
+      - all privileges      
+  - objectType: schema
+    objectName: PROD_BI_RAW.SAGEINTACCT
+    roleName: dr_prod_raw_rw
+    privilege:
+      - all privileges                
+  - objectType: schema
+    objectName: PROD_BI_RAW.CAI_PROD_PORTAL
+    roleName: dr_prod_raw_rw
+    privilege:
+      - all privileges                  
+  - objectType: schema
+    objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
+    roleName: dr_prod_raw_rw
+    privilege:
+      - all privileges                        
+  - objectType: schema
+    objectName: PROD_BI_DW.CONSOLIDATION
+    roleName: dr_prod_dw_rw
+    privilege:
+      - all privileges
+  - objectType: schema
+    objectName: PROD_BI_DW.DATACONSUMPTION
+    roleName: dr_prod_dw_rw
+    privilege:
+      - all privileges  
+  - objectType: schema
+    objectName: PROD_BI_DW.CONSOLIDATION
+    roleName: dr_prod_dw_ro
+    privilege:
+      - usage
+    destroy: true
+  - objectType: schema
+    objectName: PROD_BI_DW.DATACONSUMPTION
+    roleName: dr_prod_dw_ro
+    privilege:
+      - usage 
+#End-Prod Environment  
+
+#Warehouse privileges
+  - objectType: warehouse
+    objectName: bi_ingest_wh
+    roleName: dr_dev_raw_rw
+    privilege:
+      - usage
+      - operate
+  - objectType: warehouse
+    objectName: bi_transform_wh
+    roleName: dr_dev_dw_rw
+    privilege:
+      - usage
+      - operate
+  - objectType: warehouse
+    objectName: bi_transform_wh
+    roleName: dr_dev_dw_ro
+    privilege:
+      - usage
+      - operate      
+  - objectType: warehouse
+    objectName: bi_ingest_wh
+    roleName: dr_test_raw_rw
+    privilege:
+      - usage
+      - operate
+  - objectType: warehouse
+    objectName: bi_transform_wh
+    roleName: dr_test_dw_rw
+    privilege:
+      - usage
+      - operate
+  - objectType: warehouse
+    objectName: prod_bi_ingest_wh
+    roleName: dr_prod_raw_rw
+    privilege:
+      - usage
+      - operate
+  - objectType: warehouse
+    objectName: prod_bi_transform_wh
+    roleName: dr_prod_dw_rw
+    privilege:
+      - usage
+      - operate     
+  - objectType: warehouse
+    objectName: prod_bi_wh
+    roleName: dr_prod_dw_ro
+    privilege:
+      - usage
+      - operate      

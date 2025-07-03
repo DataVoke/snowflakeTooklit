@@ -1,0 +1,9 @@
+databases:
+  # database created by provision init
+  - name: "{{ name }}"
+
+schemas:
+  {% for s in schemas %}
+  - name: {{s}}
+    database: {{name}}
+  {% endfor %}

@@ -1,0 +1,4 @@
+entries:
+  - env: DEV
+  - env: TEST
+  - env: PROD

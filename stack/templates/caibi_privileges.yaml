@@ -1,0 +1,10 @@
+privilegeGrants:
+  # privilege grants to the ALERT_ADMIN role to manage alerts
+  {% for s in name %}
+  - objectType: database
+    objectName: "{{ env }}_bi_{{ s }}"
+    roleName: "dr_{{ env }}_{{ s }}_rw"
+    privilege:
+      - usage
+      - create schema
+  {% endfor %}
