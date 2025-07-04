@@ -29,13 +29,13 @@ jobs:
 
             - name: Download phData Toolkit
               run: |
-                curl -L "https://repo.phdata.io/public/toolkit-cli/0.77.1/linux/amd64/toolkit-cli-0.77.1.zip?token=${TOOLKIT_AUTH_TOKEN}" -o toolkit.zip
+                curl -L "curl -fO https://repo.phdata.io/LYJgTrDLzoZqCiSD/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/0.77.2/toolkit-cli-0.77.2.zip" -o toolkit.zip
                 unzip toolkit.zip
-                chmod +x toolkit-cli-0.77.1/toolkit
+                chmod +x toolkit-cli-0.77.2/toolkit
 
             - name: Run toolkit plan
-              run: ./toolkit-cli-0.77.1/toolkit provision plan --environment dev
+              run: ./toolkit-cli-0.77.2/toolkit provision plan --environment dev
 
             - name: Run toolkit apply
               if: success() && github.ref == 'refs/heads/main'
-              run: ./toolkit-cli-0.77.1/toolkit provision apply --environment dev
+              run: ./toolkit-cli-0.77.2/toolkit provision apply --environment dev
