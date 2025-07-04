@@ -29,7 +29,7 @@ jobs:
 
             - name: Download phData Toolkit
               run: |
-                curl -L "curl -L https://repo.phdata.io/LYJgTrDLzoZqCiSD/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/0.77.2/toolkit-cli-0.77.2.zip" -o toolkit.zip
+                curl -fO https://repo.phdata.io/LYJgTrDLzoZqCiSD/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/0.77.2/toolkit-cli-0.77.2.zip -o toolkit.zip
                 unzip toolkit.zip
                 chmod +x toolkit-cli-0.77.2/toolkit
 
