@@ -8,7 +8,7 @@ inputs:
   toolkit_cli_version:
     description: "Version of the toolkit cli to install"
     required: true
-    default: "0.50.0"
+    default: "0.77.2"
   snowflake_private_key_pem:
     description: "Snowflake private key in pem format"
     required: true
