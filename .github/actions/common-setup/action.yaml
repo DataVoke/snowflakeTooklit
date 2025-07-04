@@ -21,7 +21,7 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/${{ inputs.TOOLKIT_AUTH_TOKEN }}/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
+        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/${{ inputs.toolkit_cli_download_token }}/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
         unzip -jd install toolkit-cli.zip
 
     - name: Add toolkit to PATH
