@@ -1,0 +1,41 @@
+
+
+name: Provision Snowflake with phData Toolkit
+
+on:
+    workflow_dispatch: # manual trigger in Actions UI
+    push:
+        branches:
+            - main # run on pushes to main branch
+
+jobs:
+    provision:
+        runs-on: ubuntu-latest
+
+        env:
+            SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+            SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+            SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+            SNOWFLAKE_PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+            SNOWFLAKE_PRIVATE_KEY_PASSPHRASE: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
+            SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+            SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+            SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+            TOOLKIT_AUTH_TOKEN: ${{ secrets.TOOLKIT_AUTH_TOKEN }}
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Download phData Toolkit
+              run: |
+                curl -L "https://repo.phdata.io/public/toolkit-cli/0.77.1/linux/amd64/toolkit-cli-0.77.1.zip?token=${TOOLKIT_AUTH_TOKEN}" -o toolkit.zip
+                unzip toolkit.zip
+                chmod +x toolkit-cli-0.77.1/toolkit
+
+            - name: Run toolkit plan
+              run: ./toolkit-cli-0.77.1/toolkit provision plan --environment dev
+
+            - name: Run toolkit apply
+              if: success() && github.ref == 'refs/heads/main'
+              run: ./toolkit-cli-0.77.1/toolkit provision apply --environment dev
