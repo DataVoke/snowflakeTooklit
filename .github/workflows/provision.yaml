@@ -39,8 +39,8 @@ jobs:
           snowflake_private_key_pem: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
 
 
-      - name: Create metadata
-        run: toolkit provision init --metadata
+      #- name: Create metadata
+      #  run: toolkit provision init --metadata
 
       - name: Plan changes
         if: github.event_name == 'pull_request'
