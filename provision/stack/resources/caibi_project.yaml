@@ -293,7 +293,7 @@ privilegeGrants:
     privilege:
       - all privileges      
   - objectType: schema
-    objectName: PROD_BI_RAW.SAGEINTACCT
+    objectName: PROD_BI_RAW.SAGE_INTACCT
     roleName: dr_prod_raw_rw
     privilege:
       - all privileges                
