@@ -219,16 +219,11 @@ privilegeGrants:
     privilege:
       - usage
   - privilege: select
-    objectType: table
-    objectName: DEV_BI_DW.DATACONSUMPTION
+    objectType: tables
+    objectName: schema DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
     future: true
 
-  - objectType: table
-    objectName: DEV_BI_DW.DATACONSUMPTION.TEST_ANOTHERROLE_SIGNMA
-    roleName: dr_dev_dw_ro
-    privilege:
-      - select
     
 #End-Dev Environment      
 #Test Environment
