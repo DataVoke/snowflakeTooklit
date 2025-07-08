@@ -178,22 +178,22 @@ privilegeGrants:
     privilege:
       - all privileges
   - objectType: schema
-    objectName: DEV_BI_RAW.UKG
+    objectName: DEV_BI_RAW.UKG_PRO
     roleName: dr_dev_raw_rw
     privilege:
       - all privileges      
   - objectType: schema
-    objectName: DEV_BI_RAW.SAGEINTACCT
+    objectName: DEV_BI_RAW.SAGE_INTACCT_LDG
     roleName: dr_dev_raw_rw
     privilege:
       - all privileges                
   - objectType: schema
-    objectName: DEV_BI_RAW.MYSQL_PORTAL
+    objectName: DEV_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_dev_raw_rw
     privilege:
       - all privileges                  
   - objectType: schema
-    objectName: DEV_BI_RAW.MYSQL_PSATOOLS
+    objectName: DEV_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_dev_raw_rw
     privilege:
       - all privileges                        
@@ -233,22 +233,22 @@ privilegeGrants:
     privilege:
       - all privileges
   - objectType: schema
-    objectName: TEST_BI_RAW.UKG
+    objectName: TEST_BI_RAW.UKG_PRO
     roleName: dr_test_raw_rw
     privilege:
       - all privileges      
   - objectType: schema
-    objectName: TEST_BI_RAW.SAGEINTACCT
+    objectName: TEST_BI_RAW.SAGE_INTACCT
     roleName: dr_test_raw_rw
     privilege:
       - all privileges                
   - objectType: schema
-    objectName: TEST_BI_RAW.MYSQL_PORTAL
+    objectName: TEST_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_test_raw_rw
     privilege:
       - all privileges                  
   - objectType: schema
-    objectName: TEST_BI_RAW.MYSQL_PSATOOLS
+    objectName: TEST_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_test_raw_rw
     privilege:
       - all privileges                        
@@ -273,6 +273,12 @@ privilegeGrants:
     roleName: dr_test_dw_ro
     privilege:
       - usage 
+
+  - privilege: select
+    objectType: tables
+    objectName: schema TEST_BI_DW.DATACONSUMPTION
+    roleName: dr_dev_dw_ro
+    future: true      
 #End-Test Environment  
 
 #Prod Environment
@@ -282,7 +288,7 @@ privilegeGrants:
     privilege:
       - all privileges
   - objectType: schema
-    objectName: PROD_BI_RAW.UKG
+    objectName: PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
     privilege:
       - all privileges      
