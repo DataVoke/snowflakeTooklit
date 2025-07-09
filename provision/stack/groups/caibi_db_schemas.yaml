@@ -15,6 +15,7 @@ entries:
     schemas: 
       - CONSOLIDATION
       - DATACONSUMPTION
+      - REFERENCE
   - name: TEST_BI_RAW
     schemas: 
       - SALESFORCE
@@ -30,7 +31,8 @@ entries:
   - name: TEST_BI_DW
     schemas: 
       - CONSOLIDATION
-      - DATACONSUMPTION      
+      - DATACONSUMPTION
+      - REFERENCE     
   - name: PROD_BI_RAW
     schemas: 
       - SALESFORCE
@@ -46,4 +48,5 @@ entries:
   - name: PROD_BI_DW
     schemas: 
       - CONSOLIDATION
-      - DATACONSUMPTION      
+      - DATACONSUMPTION
+      - REFERENCE     

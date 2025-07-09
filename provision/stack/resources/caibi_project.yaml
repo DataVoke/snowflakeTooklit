@@ -203,16 +203,15 @@ privilegeGrants:
     privilege:
       - all privileges
   - objectType: schema
+    objectName: DEV_BI_DW.REFERENCE
+    roleName: dr_dev_dw_rw
+    privilege:
+      - all privileges     
+  - objectType: schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_rw
     privilege:
       - all privileges  
-  - objectType: schema
-    objectName: DEV_BI_DW.CONSOLIDATION
-    roleName: dr_dev_dw_ro
-    privilege:
-      - usage
-    destroy: true
   - objectType: schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
