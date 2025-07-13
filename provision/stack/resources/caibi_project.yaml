@@ -78,7 +78,6 @@ warehouses:
       warehouse_type: standard
       min_cluster_count: 1
       max_cluster_count: 1
-      #scaling_policy: economy
       enable_query_acceleration: false
       comment: Non-Prod warehouse for transformation process
 
@@ -92,7 +91,6 @@ warehouses:
       warehouse_type: standard
       min_cluster_count: 1
       max_cluster_count: 1
-      #scaling_policy: economy
       enable_query_acceleration: false
       comment: Non-Prod warehouse for fivetran ingestion process
 
@@ -106,7 +104,6 @@ warehouses:
       warehouse_type: standard
       min_cluster_count: 1
       max_cluster_count: 1
-      #scaling_policy: economy
       enable_query_acceleration: false
       comment: Prod warehouse for transformation process
 
@@ -120,7 +117,6 @@ warehouses:
       warehouse_type: standard
       min_cluster_count: 1
       max_cluster_count: 1
-      #scaling_policy: economy
       enable_query_acceleration: false
       comment: Prod warehouse for fivetran ingestion process
 
@@ -134,7 +130,6 @@ warehouses:
       warehouse_type: standard
       min_cluster_count: 1
       max_cluster_count: 1
-      #scaling_policy: economy
       enable_query_acceleration: false
       comment: Prod warehouse for BI users
 
@@ -177,41 +172,49 @@ privilegeGrants:
     roleName: dr_dev_raw_rw
     privilege:
       - all privileges
+    destroy: true
   - objectType: schema
     objectName: DEV_BI_RAW.UKG_PRO
     roleName: dr_dev_raw_rw
     privilege:
-      - all privileges      
+      - all privileges
+    destroy: true            
   - objectType: schema
     objectName: DEV_BI_RAW.SAGE_INTACCT_LDG
     roleName: dr_dev_raw_rw
     privilege:
-      - all privileges                
+      - all privileges  
+    destroy: true              
   - objectType: schema
     objectName: DEV_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_dev_raw_rw
     privilege:
-      - all privileges                  
+      - all privileges     
+    destroy: true             
   - objectType: schema
     objectName: DEV_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_dev_raw_rw
     privilege:
-      - all privileges                        
+      - all privileges      
+    destroy: true                  
   - objectType: schema
     objectName: DEV_BI_DW.CONSOLIDATION
     roleName: dr_dev_dw_rw
     privilege:
       - all privileges
+    destroy: true
   - objectType: schema
     objectName: DEV_BI_DW.REFERENCE
     roleName: dr_dev_dw_rw
     privilege:
-      - all privileges     
+      - all privileges
+    destroy: true
   - objectType: schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_rw
     privilege:
       - all privileges  
+    destroy: true
   - objectType: schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
@@ -231,48 +234,54 @@ privilegeGrants:
     roleName: dr_test_raw_rw
     privilege:
       - all privileges
+    destroy: true
   - objectType: schema
     objectName: TEST_BI_RAW.UKG_PRO
     roleName: dr_test_raw_rw
     privilege:
-      - all privileges      
+      - all privileges
+    destroy: true   
   - objectType: schema
     objectName: TEST_BI_RAW.SAGE_INTACCT
     roleName: dr_test_raw_rw
     privilege:
-      - all privileges                
+      - all privileges
+    destroy: true              
   - objectType: schema
     objectName: TEST_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_test_raw_rw
     privilege:
-      - all privileges                  
+      - all privileges
+    destroy: true              
   - objectType: schema
     objectName: TEST_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_test_raw_rw
     privilege:
-      - all privileges                        
+      - all privileges
+    destroy: true                     
   - objectType: schema
     objectName: TEST_BI_DW.CONSOLIDATION
     roleName: dr_test_dw_rw
     privilege:
       - all privileges
+    destroy: true
+  - objectType: schema
+    objectName: TEST_BI_DW.REFERENCE
+    roleName: dr_test_dw_rw
+    privilege:
+      - all privileges
+    destroy: true
   - objectType: schema
     objectName: TEST_BI_DW.DATACONSUMPTION
     roleName: dr_test_dw_rw
     privilege:
-      - all privileges  
-  - objectType: schema
-    objectName: TEST_BI_DW.CONSOLIDATION
-    roleName: dr_test_dw_ro
-    privilege:
-      - usage
+      - all privileges
     destroy: true
   - objectType: schema
     objectName: TEST_BI_DW.DATACONSUMPTION
     roleName: dr_test_dw_ro
     privilege:
-      - usage 
-
+      - usage
   - privilege: select
     objectType: tables
     objectName: schema TEST_BI_DW.DATACONSUMPTION
@@ -286,41 +295,48 @@ privilegeGrants:
     roleName: dr_prod_raw_rw
     privilege:
       - all privileges
+    destroy: true
   - objectType: schema
     objectName: PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
     privilege:
-      - all privileges      
+      - all privileges    
+    destroy: true  
   - objectType: schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
     roleName: dr_prod_raw_rw
     privilege:
-      - all privileges                
+      - all privileges     
+    destroy: true           
   - objectType: schema
     objectName: PROD_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_prod_raw_rw
     privilege:
-      - all privileges                  
+      - all privileges      
+    destroy: true            
   - objectType: schema
     objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
     privilege:
-      - all privileges                        
+      - all privileges  
+    destroy: true                      
   - objectType: schema
     objectName: PROD_BI_DW.CONSOLIDATION
     roleName: dr_prod_dw_rw
     privilege:
       - all privileges
+    destroy: true
+  - objectType: schema
+    objectName: PROD_BI_DW.REFERENCE
+    roleName: dr_prod_dw_rw
+    privilege:
+      - all privileges   
+    destroy: true   
   - objectType: schema
     objectName: PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_rw
     privilege:
       - all privileges  
-  - objectType: schema
-    objectName: PROD_BI_DW.CONSOLIDATION
-    roleName: dr_prod_dw_ro
-    privilege:
-      - usage
     destroy: true
   - objectType: schema
     objectName: PROD_BI_DW.DATACONSUMPTION
