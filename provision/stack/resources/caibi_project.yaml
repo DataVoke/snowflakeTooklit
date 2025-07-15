@@ -285,7 +285,16 @@ privilegeGrants:
     objectName: schema DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
     future: true
-
+  - objectType: schema
+    objectName: DEV_BI_DW.REFERENCE
+    roleName: dr_dev_dw_ro
+    privilege:
+      - usage
+  - privilege: select
+    objectType: tables
+    objectName: schema DEV_BI_DW.REFERENCE
+    roleName: dr_dev_dw_ro
+    future: true
     
 #End-Dev Environment      
 #Test Environment
