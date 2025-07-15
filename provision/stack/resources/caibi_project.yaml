@@ -295,7 +295,11 @@ privilegeGrants:
     objectName: schema DEV_BI_DW.REFERENCE
     roleName: dr_dev_dw_ro
     future: true
-    
+  - privilege: select
+    objectType: table
+    objectName: TIME_TYPE_PHASE_CODES
+    roleName: dr_dev_dw_ro
+
 #End-Dev Environment      
 #Test Environment
   - objectType: database
