@@ -2,15 +2,12 @@ entries:
   - env: DEV
     name: 
       - RAW
-#      - STG
       - DW
   - env: TEST
     name: 
       - RAW
-#      - STG
       - DW
   - env: PROD
     name: 
       - RAW
-#      - STG
       - DW      

@@ -295,10 +295,6 @@ privilegeGrants:
     objectName: schema DEV_BI_DW.REFERENCE
     roleName: dr_dev_dw_ro
     future: true
-  - privilege: select
-    objectType: table
-    objectName: TIME_TYPE_PHASE_CODES
-    roleName: dr_dev_dw_ro
 
 #End-Dev Environment      
 #Test Environment
@@ -424,7 +420,18 @@ privilegeGrants:
     objectType: tables
     objectName: schema TEST_BI_DW.DATACONSUMPTION
     roleName: dr_test_dw_ro
-    future: true      
+    future: true   
+  - objectType: schema
+    objectName: TEST_BI_DW.REFERENCE
+    roleName: dr_test_dw_ro
+    privilege:
+      - usage
+  - privilege: select
+    objectType: tables
+    objectName: schema TEST_BI_DW.REFERENCE
+    roleName: dr_test_dw_ro
+    future: true
+
 #End-Test Environment  
 
 #Prod Environment
@@ -547,6 +554,17 @@ privilegeGrants:
     roleName: dr_prod_dw_ro
     privilege:
       - usage 
+  - objectType: schema
+    objectName: PROD_BI_DW.REFERENCE
+    roleName: dr_prod_dw_ro
+    privilege:
+      - usage
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_DW.REFERENCE
+    roleName: dr_prod_dw_ro
+    future: true
+
 #End-Prod Environment  
 
 #Warehouse privileges
