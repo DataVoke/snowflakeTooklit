@@ -560,6 +560,11 @@ privilegeGrants:
     roleName: dr_prod_dw_ro
     privilege:
       - usage 
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_DW.DATACONSUMPTION
+    roleName: dr_prod_dw_ro
+    future: true
   - objectType: schema
     objectName: PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
