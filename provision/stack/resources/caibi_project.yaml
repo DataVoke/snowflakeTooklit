@@ -456,16 +456,16 @@ privilegeGrants:
     roleName: dr_prod_dw_rw
     privilege:
       - modify             
-  - objectType: database
-    objectName: TEST_BI_RAW
-    roleName: dr_prod_dw_rw
-    privilege:
-      - monitor
-  - objectType: database
-    objectName: TEST_BI_RAW
-    roleName: dr_prod_dw_rw
-    privilege:
-      - modify              
+#  - objectType: database
+#    objectName: TEST_BI_RAW
+#    roleName: dr_prod_dw_rw
+#    privilege:
+#      - monitor
+#  - objectType: database
+#    objectName: TEST_BI_RAW
+#    roleName: dr_prod_dw_rw
+#    privilege:
+#      - modify              
 
   - objectType: schema
     objectName: PROD_BI_RAW.SALESFORCE
@@ -592,18 +592,18 @@ privilegeGrants:
     privilege:
       - usage
       - operate      
-  - objectType: warehouse
-    objectName: bi_ingest_wh
-    roleName: dr_test_raw_rw
-    privilege:
-      - usage
-      - operate
-  - objectType: warehouse
-    objectName: bi_transform_wh
-    roleName: dr_test_dw_rw
-    privilege:
-      - usage
-      - operate
+#  - objectType: warehouse
+#    objectName: bi_ingest_wh
+#    roleName: dr_test_raw_rw
+#    privilege:
+#      - usage
+#      - operate
+#  - objectType: warehouse
+#    objectName: bi_transform_wh
+#    roleName: dr_test_dw_rw
+#    privilege:
+#      - usage
+#      - operate
   - objectType: warehouse
     objectName: prod_bi_ingest_wh
     roleName: dr_prod_raw_rw
