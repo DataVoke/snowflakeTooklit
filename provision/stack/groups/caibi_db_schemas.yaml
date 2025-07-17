@@ -6,33 +6,18 @@ entries:
       - SAGE_INTACCT_LDG
       - CAI_PROD_PORTAL
       - CAI_PROD_PSATOOLS
-#  - name: DEV_BI_STG
-#    schemas: 
-#      - SALESFORCE
-#      - UKG
-#      - SAGEINTACCT
   - name: DEV_BI_DW
     schemas: 
       - CONSOLIDATION
       - DATACONSUMPTION
       - REFERENCE
-  - name: TEST_BI_RAW
-    schemas: 
-      - SALESFORCE
-      - UKG_PRO
-      - SAGE_INTACCT
-      - CAI_PROD_PORTAL
-      - CAI_PROD_PSATOOLS
-#  - name: TEST_BI_STG
+
+#  - name: TEST_BI_DW
 #    schemas: 
-#      - SALESFORCE
-#      - UKG
-#      - SAGEINTACCT
-  - name: TEST_BI_DW
-    schemas: 
-      - CONSOLIDATION
-      - DATACONSUMPTION
-      - REFERENCE     
+#      - CONSOLIDATION
+#      - DATACONSUMPTION
+#      - REFERENCE
+
   - name: PROD_BI_RAW
     schemas: 
       - SALESFORCE
@@ -40,11 +25,7 @@ entries:
       - SAGE_INTACCT
       - CAI_PROD_PORTAL
       - CAI_PROD_PSATOOLS
-#  - name: DEV_BI_STG
-#    schemas: 
-#      - SALESFORCE
-#      - UKG
-#      - SAGEINTACCT
+
   - name: PROD_BI_DW
     schemas: 
       - CONSOLIDATION

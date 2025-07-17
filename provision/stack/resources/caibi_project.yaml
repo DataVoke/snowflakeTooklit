@@ -158,6 +158,12 @@ roleGrants:
   - name: "fr_prod_dbt"
     toUsers:
       - CICD_SVC_USER_PROD
+  - name: "fr_dev_analyst"
+    toUsers:
+      - SIGMA_SVC_USER_NONPROD     
+  - name: "fr_prod_analyst"
+    toUsers:
+      - SIGMA_SVC_USER_PROD     
 
 privilegeGrants:
   # privilege grants to the ALERT_ADMIN role to manage alerts
@@ -298,139 +304,139 @@ privilegeGrants:
 
 #End-Dev Environment      
 #Test Environment
-  - objectType: database
-    objectName: TEST_BI_DW
-    roleName: dr_test_dw_ro
-    privilege:
-      - usage
-  - objectType: database
-    objectName: TEST_BI_DW
-    roleName: dr_test_dw_rw
-    privilege:
-      - monitor
-  - objectType: database
-    objectName: TEST_BI_DW
-    roleName: dr_test_dw_rw
-    privilege:
-      - modify             
-  - objectType: database
-    objectName: TEST_BI_RAW
-    roleName: dr_test_dw_rw
-    privilege:
-      - monitor
-  - objectType: database
-    objectName: TEST_BI_RAW
-    roleName: dr_test_dw_rw
-    privilege:
-      - modify                   
-  - objectType: schema
-    objectName: TEST_BI_RAW.SALESFORCE
-    roleName: dr_test_raw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository
-  - objectType: schema
-    objectName: TEST_BI_RAW.UKG_PRO
-    roleName: dr_test_raw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository
-  - objectType: schema
-    objectName: TEST_BI_RAW.SAGE_INTACCT
-    roleName: dr_test_raw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository
-  - objectType: schema
-    objectName: TEST_BI_RAW.CAI_PROD_PORTAL
-    roleName: dr_test_raw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository     
-  - objectType: schema
-    objectName: TEST_BI_RAW.CAI_PROD_PSATOOLS
-    roleName: dr_test_raw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository             
-  - objectType: schema
-    objectName: TEST_BI_DW.CONSOLIDATION
-    roleName: dr_test_dw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository
-  - objectType: schema
-    objectName: TEST_BI_DW.REFERENCE
-    roleName: dr_test_dw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository
-  - objectType: schema
-    objectName: TEST_BI_DW.DATACONSUMPTION
-    roleName: dr_test_dw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository
-  - objectType: schema
-    objectName: TEST_BI_DW.DATACONSUMPTION
-    roleName: dr_test_dw_ro
-    privilege:
-      - usage
-  - privilege: select
-    objectType: tables
-    objectName: schema TEST_BI_DW.DATACONSUMPTION
-    roleName: dr_test_dw_ro
-    future: true   
-  - objectType: schema
-    objectName: TEST_BI_DW.REFERENCE
-    roleName: dr_test_dw_ro
-    privilege:
-      - usage
-  - privilege: select
-    objectType: tables
-    objectName: schema TEST_BI_DW.REFERENCE
-    roleName: dr_test_dw_ro
-    future: true
+#  - objectType: database
+#    objectName: TEST_BI_DW
+#    roleName: dr_test_dw_ro
+#    privilege:
+#      - usage
+#  - objectType: database
+#    objectName: TEST_BI_DW
+#    roleName: dr_test_dw_rw
+#    privilege:
+#      - monitor
+#  - objectType: database
+#    objectName: TEST_BI_DW
+#    roleName: dr_test_dw_rw
+#    privilege:
+#      - modify             
+#  - objectType: database
+#    objectName: TEST_BI_RAW
+#    roleName: dr_test_dw_rw
+#    privilege:
+#      - monitor
+#  - objectType: database
+#    objectName: TEST_BI_RAW
+#    roleName: dr_test_dw_rw
+#    privilege:
+#      - modify                   
+#  - objectType: schema
+#    objectName: TEST_BI_RAW.SALESFORCE
+#    roleName: dr_test_raw_rw
+#    privilege:
+#      - modify
+#      - monitor
+#      - create table
+#      - create dynamic table
+#      - create external table
+#      - create view
+#      - create git repository
+#  - objectType: schema
+#    objectName: TEST_BI_RAW.UKG_PRO
+#    roleName: dr_test_raw_rw
+#    privilege:
+#      - modify
+#      - monitor
+#      - create table
+#      - create dynamic table
+#      - create external table
+#      - create view
+#      - create git repository
+#  - objectType: schema
+#    objectName: TEST_BI_RAW.SAGE_INTACCT
+#    roleName: dr_test_raw_rw
+#    privilege:
+#      - modify
+#      - monitor
+#      - create table
+#      - create dynamic table
+#      - create external table
+#      - create view
+#      - create git repository
+#  - objectType: schema
+#    objectName: TEST_BI_RAW.CAI_PROD_PORTAL
+#    roleName: dr_test_raw_rw
+#    privilege:
+#      - modify
+#      - monitor
+#      - create table
+#      - create dynamic table
+#      - create external table
+#      - create view
+#      - create git repository     
+#  - objectType: schema
+#    objectName: TEST_BI_RAW.CAI_PROD_PSATOOLS
+#    roleName: dr_test_raw_rw
+#    privilege:
+#      - modify
+#      - monitor
+#      - create table
+#      - create dynamic table
+#      - create external table
+#      - create view
+#      - create git repository             
+#  - objectType: schema
+#    objectName: TEST_BI_DW.CONSOLIDATION
+#    roleName: dr_test_dw_rw
+#    privilege:
+#      - modify
+#      - monitor
+#      - create table
+#      - create dynamic table
+#      - create external table
+#      - create view
+#      - create git repository
+#  - objectType: schema
+#    objectName: TEST_BI_DW.REFERENCE
+#    roleName: dr_test_dw_rw
+#    privilege:
+#      - modify
+#      - monitor
+#      - create table
+#      - create dynamic table
+#      - create external table
+#      - create view
+#      - create git repository
+#  - objectType: schema
+#    objectName: TEST_BI_DW.DATACONSUMPTION
+#    roleName: dr_test_dw_rw
+#    privilege:
+#      - modify
+#      - monitor
+#      - create table
+#      - create dynamic table
+#      - create external table
+#      - create view
+#      - create git repository
+#  - objectType: schema
+#    objectName: TEST_BI_DW.DATACONSUMPTION
+#    roleName: dr_test_dw_ro
+#    privilege:
+#      - usage
+#  - privilege: select
+#    objectType: tables
+#    objectName: schema TEST_BI_DW.DATACONSUMPTION
+#    roleName: dr_test_dw_ro
+#    future: true   
+#  - objectType: schema
+#    objectName: TEST_BI_DW.REFERENCE
+#    roleName: dr_test_dw_ro
+#    privilege:
+#      - usage
+#  - privilege: select
+#    objectType: tables
+#    objectName: schema TEST_BI_DW.REFERENCE
+#    roleName: dr_test_dw_ro
+#    future: true
 
 #End-Test Environment  
 

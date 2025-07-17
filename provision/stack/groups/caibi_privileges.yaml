@@ -3,10 +3,10 @@ entries:
     name: 
       - RAW
       - DW
-  - env: TEST
-    name: 
-      - RAW
-      - DW
+  #- env: TEST
+  #  name: 
+  #    - RAW
+  #    - DW
   - env: PROD
     name: 
       - RAW
