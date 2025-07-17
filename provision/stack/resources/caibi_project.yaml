@@ -608,7 +608,7 @@ privilegeGrants:
 #    roleName: dr_test_dw_rw
 #    privilege:
 #      - usage
-#      - operate
+#      - operate#
   - objectType: warehouse
     objectName: prod_bi_ingest_wh
     roleName: dr_prod_raw_rw
