@@ -575,6 +575,7 @@ privilegeGrants:
     objectName: schema PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
     future: true
+    destroy : true
 
 #End-Prod Environment  
 
