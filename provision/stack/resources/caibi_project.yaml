@@ -478,6 +478,8 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - select
+      - usage
   - objectType: schema
     objectName: PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
@@ -489,6 +491,8 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - select
+      - usage      
   - objectType: schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
     roleName: dr_prod_raw_rw
@@ -500,6 +504,8 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository 
+      - select
+      - usage      
   - objectType: schema
     objectName: PROD_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_prod_raw_rw
@@ -510,7 +516,9 @@ privilegeGrants:
       - create dynamic table
       - create external table
       - create view
-      - create git repository   
+      - create git repository
+      - select
+      - usage         
   - objectType: schema
     objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
@@ -521,7 +529,9 @@ privilegeGrants:
       - create dynamic table
       - create external table
       - create view
-      - create git repository           
+      - create git repository
+      - select
+      - usage                 
   - objectType: schema
     objectName: PROD_BI_DW.CONSOLIDATION
     roleName: dr_prod_dw_rw
@@ -533,6 +543,8 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - select
+      - usage      
   - objectType: schema
     objectName: PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_rw
@@ -544,6 +556,8 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - select
+      - usage      
   - objectType: schema
     objectName: PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_rw
@@ -555,6 +569,8 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - select
+      - usage      
   - objectType: schema
     objectName: PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_ro
@@ -575,6 +591,7 @@ privilegeGrants:
     objectName: schema PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
     future: true
+    destroy : true
 
 #End-Prod Environment  
 
