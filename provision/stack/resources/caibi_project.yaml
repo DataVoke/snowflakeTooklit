@@ -303,142 +303,6 @@ privilegeGrants:
     future: true
 
 #End-Dev Environment      
-#Test Environment
-#  - objectType: database
-#    objectName: TEST_BI_DW
-#    roleName: dr_test_dw_ro
-#    privilege:
-#      - usage
-#  - objectType: database
-#    objectName: TEST_BI_DW
-#    roleName: dr_test_dw_rw
-#    privilege:
-#      - monitor
-#  - objectType: database
-#    objectName: TEST_BI_DW
-#    roleName: dr_test_dw_rw
-#    privilege:
-#      - modify             
-#  - objectType: database
-#    objectName: TEST_BI_RAW
-#    roleName: dr_test_dw_rw
-#    privilege:
-#      - monitor
-#  - objectType: database
-#    objectName: TEST_BI_RAW
-#    roleName: dr_test_dw_rw
-#    privilege:
-#      - modify                   
-#  - objectType: schema
-#    objectName: TEST_BI_RAW.SALESFORCE
-#    roleName: dr_test_raw_rw
-#    privilege:
-#      - modify
-#      - monitor
-#      - create table
-#      - create dynamic table
-#      - create external table
-#      - create view
-#      - create git repository
-#  - objectType: schema
-#    objectName: TEST_BI_RAW.UKG_PRO
-#    roleName: dr_test_raw_rw
-#    privilege:
-#      - modify
-#      - monitor
-#      - create table
-#      - create dynamic table
-#      - create external table
-#      - create view
-#      - create git repository
-#  - objectType: schema
-#    objectName: TEST_BI_RAW.SAGE_INTACCT
-#    roleName: dr_test_raw_rw
-#    privilege:
-#      - modify
-#      - monitor
-#      - create table
-#      - create dynamic table
-#      - create external table
-#      - create view
-#      - create git repository
-#  - objectType: schema
-#    objectName: TEST_BI_RAW.CAI_PROD_PORTAL
-#    roleName: dr_test_raw_rw
-#    privilege:
-#      - modify
-#      - monitor
-#      - create table
-#      - create dynamic table
-#      - create external table
-#      - create view
-#      - create git repository     
-#  - objectType: schema
-#    objectName: TEST_BI_RAW.CAI_PROD_PSATOOLS
-#    roleName: dr_test_raw_rw
-#    privilege:
-#      - modify
-#      - monitor
-#      - create table
-#      - create dynamic table
-#      - create external table
-#      - create view
-#      - create git repository             
-#  - objectType: schema
-#    objectName: TEST_BI_DW.CONSOLIDATION
-#    roleName: dr_test_dw_rw
-#    privilege:
-#      - modify
-#      - monitor
-#      - create table
-#      - create dynamic table
-#      - create external table
-#      - create view
-#      - create git repository
-#  - objectType: schema
-#    objectName: TEST_BI_DW.REFERENCE
-#    roleName: dr_test_dw_rw
-#    privilege:
-#      - modify
-#      - monitor
-#      - create table
-#      - create dynamic table
-#      - create external table
-#      - create view
-#      - create git repository
-#  - objectType: schema
-#    objectName: TEST_BI_DW.DATACONSUMPTION
-#    roleName: dr_test_dw_rw
-#    privilege:
-#      - modify
-#      - monitor
-#      - create table
-#      - create dynamic table
-#      - create external table
-#      - create view
-#      - create git repository
-#  - objectType: schema
-#    objectName: TEST_BI_DW.DATACONSUMPTION
-#    roleName: dr_test_dw_ro
-#    privilege:
-#      - usage
-#  - privilege: select
-#    objectType: tables
-#    objectName: schema TEST_BI_DW.DATACONSUMPTION
-#    roleName: dr_test_dw_ro
-#    future: true   
-#  - objectType: schema
-#    objectName: TEST_BI_DW.REFERENCE
-#    roleName: dr_test_dw_ro
-#    privilege:
-#      - usage
-#  - privilege: select
-#    objectType: tables
-#    objectName: schema TEST_BI_DW.REFERENCE
-#    roleName: dr_test_dw_ro
-#    future: true
-
-#End-Test Environment  
 
 #Prod Environment
   - objectType: database
@@ -456,16 +320,6 @@ privilegeGrants:
     roleName: dr_prod_dw_rw
     privilege:
       - modify             
-#  - objectType: database
-#    objectName: TEST_BI_RAW
-#    roleName: dr_prod_dw_rw
-#    privilege:
-#      - monitor
-#  - objectType: database
-#    objectName: TEST_BI_RAW
-#    roleName: dr_prod_dw_rw
-#    privilege:
-#      - modify              
 
   - objectType: schema
     objectName: PROD_BI_RAW.SALESFORCE
@@ -478,8 +332,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - select
-      - usage
+
   - objectType: schema
     objectName: PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
@@ -491,8 +344,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - select
-      - usage      
+
   - objectType: schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
     roleName: dr_prod_raw_rw
@@ -504,8 +356,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository 
-      - select
-      - usage      
+
   - objectType: schema
     objectName: PROD_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_prod_raw_rw
@@ -517,8 +368,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - select
-      - usage         
+
   - objectType: schema
     objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
@@ -530,8 +380,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - select
-      - usage                 
+  
   - objectType: schema
     objectName: PROD_BI_DW.CONSOLIDATION
     roleName: dr_prod_dw_rw
@@ -543,8 +392,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - select
-      - usage      
+
   - objectType: schema
     objectName: PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_rw
@@ -556,8 +404,6 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - select
-      - usage      
   - objectType: schema
     objectName: PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_rw
@@ -569,13 +415,25 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - select
-      - usage      
   - objectType: schema
     objectName: PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_ro
     privilege:
       - usage 
+  - privilege: 
+      - select
+      - usage
+    objectType: tables
+    objectName: schema PROD_BI_DW.DATACONSUMPTION
+    roleName: dr_prod_dw_rw
+    future: true      
+  - privilege: 
+      - select
+      - usage  
+    objectType: tables
+    objectName: schema PROD_BI_DW.CONSOLIDATION
+    roleName: dr_prod_dw_rw
+    future: true          
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
@@ -591,7 +449,6 @@ privilegeGrants:
     objectName: schema PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
     future: true
-    destroy : true
 
 #End-Prod Environment  
 
@@ -614,18 +471,6 @@ privilegeGrants:
     privilege:
       - usage
       - operate      
-#  - objectType: warehouse
-#    objectName: bi_ingest_wh
-#    roleName: dr_test_raw_rw
-#    privilege:
-#      - usage
-#      - operate
-#  - objectType: warehouse
-#    objectName: bi_transform_wh
-#    roleName: dr_test_dw_rw
-#    privilege:
-#      - usage
-#      - operate#
   - objectType: warehouse
     objectName: prod_bi_ingest_wh
     roleName: dr_prod_raw_rw
