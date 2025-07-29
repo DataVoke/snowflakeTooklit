@@ -204,6 +204,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - usage
   - objectType: schema
     objectName: DEV_BI_RAW.UKG_PRO
     roleName: dr_dev_raw_rw
@@ -214,7 +215,8 @@ privilegeGrants:
       - create dynamic table
       - create external table
       - create view
-      - create git repository        
+      - create git repository
+      - usage           
   - objectType: schema
     objectName: DEV_BI_RAW.SAGE_INTACCT_LDG
     roleName: dr_dev_raw_rw
@@ -225,7 +227,8 @@ privilegeGrants:
       - create dynamic table
       - create external table
       - create view
-      - create git repository           
+      - create git repository    
+      - usage             
   - objectType: schema
     objectName: DEV_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_dev_raw_rw
@@ -237,6 +240,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository       
+      - usage      
   - objectType: schema
     objectName: DEV_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_dev_raw_rw
@@ -247,7 +251,8 @@ privilegeGrants:
       - create dynamic table
       - create external table
       - create view
-      - create git repository                  
+      - create git repository              
+      - usage          
   - objectType: schema
     objectName: DEV_BI_DW.CONSOLIDATION
     roleName: dr_dev_dw_rw
@@ -259,6 +264,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - usage      
   - objectType: schema
     objectName: DEV_BI_DW.REFERENCE
     roleName: dr_dev_dw_rw
@@ -270,6 +276,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - usage      
   - objectType: schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_rw
@@ -281,11 +288,22 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
+      - usage      
   - objectType: schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
     privilege:
       - usage
+  - privilege: select
+    objectType: tables
+    objectName: schema DEV_BI_DW.CONSOLIDATION
+    roleName: dr_dev_dw_rw
+    future: true            
+  - privilege: select
+    objectType: tables
+    objectName: schema DEV_BI_DW.DATACONSUMPTION
+    roleName: dr_dev_dw_rw
+    future: true      
   - privilege: select
     objectType: tables
     objectName: schema DEV_BI_DW.DATACONSUMPTION
