@@ -444,27 +444,27 @@ privilegeGrants:
     objectType: tables
     objectName: schema PROD_BI_RAW.SAGE_INTACCT
     roleName: dr_prod_raw_rw
-#    future: true          
+    future: true          
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.SALESFORCE
     roleName: dr_prod_raw_rw
-#    future: true  
+    future: true  
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
-#    future: true 
+    future: true 
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_prod_raw_rw
-#    future: true 
+    future: true 
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
-#    future: true     
+    future: true     
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
