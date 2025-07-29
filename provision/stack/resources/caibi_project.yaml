@@ -449,7 +449,7 @@ privilegeGrants:
     objectType: tables
     objectName: schema PROD_BI_RAW.SALESFORCE
     roleName: dr_prod_raw_rw
-    future: true 
+    future: true  
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.UKG_PRO
