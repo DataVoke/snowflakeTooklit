@@ -469,12 +469,12 @@ privilegeGrants:
     objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_raw_rw
-    #future: true      
+    future: true      
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_DW.CONSOLIDATION
     roleName: dr_prod_raw_rw
-    #future: true          
+    future: true          
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
