@@ -463,7 +463,7 @@ privilegeGrants:
     roleName: dr_prod_raw_rw
   - privilege: select
     objectType: tables
-    objectName: PROD_BI_RAW.SAGE_INTACCT
+    objectName: schema PROD_BI_RAW.SAGE_INTACCT
     roleName: dr_prod_raw_rw
     future: true          
   - privilege: select
