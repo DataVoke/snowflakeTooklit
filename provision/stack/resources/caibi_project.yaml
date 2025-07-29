@@ -444,18 +444,15 @@ privilegeGrants:
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
-    roleName: dr_prod_raw_rw
-       
+    roleName: dr_prod_raw_rw       
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.SALESFORCE
     roleName: dr_prod_raw_rw
- 
   - privilege: select
     objectType: all tables in schema
     objectName: schema PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
-
   - privilege: select
     objectType: all tables in schema
     objectName: schema PROD_BI_RAW.CAI_PROD_PORTAL
@@ -464,8 +461,6 @@ privilegeGrants:
     objectType: all tables in schema
     objectName: schema PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
-  
-
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.SAGE_INTACCT
