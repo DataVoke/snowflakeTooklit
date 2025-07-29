@@ -200,7 +200,7 @@ privilegeGrants:
       - modify
       - monitor
       - create table
-      - create dynamic tablewe 
+      - create dynamic table
       - create external table
       - create view
       - create git repository
