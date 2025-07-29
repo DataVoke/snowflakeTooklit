@@ -200,7 +200,7 @@ privilegeGrants:
       - modify
       - monitor
       - create table
-      - create dynamic table
+      - create dynamic tablewe 
       - create external table
       - create view
       - create git repository
@@ -442,13 +442,38 @@ privilegeGrants:
       - usage 
   - privilege: select
     objectType: tables
+    objectName: schema PROD_BI_RAW.SAGE_INTACCT
+    roleName: dr_prod_raw_rw
+    future: true          
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_RAW.SALESFORCE
+    roleName: dr_prod_raw_rw
+    future: true 
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_RAW.UKG_PRO
+    roleName: dr_prod_raw_rw
+    future: true 
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_RAW.CAI_PROD_PORTAL
+    roleName: dr_prod_raw_rw
+    future: true 
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_RAW.CAI_PROD_PSATOOLS
+    roleName: dr_prod_raw_rw
+    future: true     
+  - privilege: select
+    objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
-    roleName: dr_prod_dw_rw
+    roleName: dr_prod_raw_rw
     future: true      
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_DW.CONSOLIDATION
-    roleName: dr_prod_dw_rw
+    roleName: dr_prod_raw_rw
     future: true          
   - privilege: select
     objectType: tables
