@@ -163,7 +163,10 @@ roleGrants:
       - SIGMA_SVC_USER_NONPROD     
   - name: "fr_prod_analyst"
     toUsers:
-      - SIGMA_SVC_USER_PROD     
+      - SIGMA_SVC_USER_PROD  
+  - name: "dr_dev_dw_ro"
+    toRoles:
+      - "fr_dev_dbt"
 
 privilegeGrants:
   # privilege grants to the ALERT_ADMIN role to manage alerts
@@ -192,7 +195,12 @@ privilegeGrants:
     objectName: DEV_BI_RAW
     roleName: dr_dev_dw_rw
     privilege:
-      - modify                   
+      - modify                 
+  - objectType: database
+    objectName: PROD_BI_RAW
+    roleName: dr_dev_dw_ro
+    privilege:
+      - usage                       
   - objectType: schema
     objectName: DEV_BI_RAW.SALESFORCE
     roleName: dr_dev_raw_rw
@@ -298,49 +306,49 @@ privilegeGrants:
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
-    roleName: dr_dev_raw_rw       
+    roleName: dr_dev_raw_ro       
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.SALESFORCE
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.UKG_PRO
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.CAI_PROD_PORTAL
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
 
 
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.SAGE_INTACCT
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
     future: true          
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.SALESFORCE
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
     future: true  
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.UKG_PRO
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
     future: true 
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.CAI_PROD_PORTAL
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
     future: true 
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.CAI_PROD_PSATOOLS
-    roleName: dr_dev_raw_rw
+    roleName: dr_dev_raw_ro
     future: true     
 
   - privilege: select
@@ -570,6 +578,12 @@ privilegeGrants:
     privilege:
       - usage
       - operate
+  - objectType: warehouse
+    objectName: bi_ingest_wh
+    roleName: dr_dev_raw_ro
+    privilege:
+      - usage
+      - operate      
   - objectType: warehouse
     objectName: bi_transform_wh
     roleName: dr_dev_dw_rw
