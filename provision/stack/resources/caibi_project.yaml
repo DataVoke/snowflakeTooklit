@@ -135,7 +135,7 @@ warehouses:
 
 roles:
   - name: fr_admin
-
+  - name: dr_dev_raw_ro
 roleGrants:
   - name: fr_admin
     toRoles:
