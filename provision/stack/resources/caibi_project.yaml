@@ -4,8 +4,7 @@ resourceMonitors:
     startTimestamp: immediately
     frequency: monthly
     notifyUsers:
-     # - EVAN_GUTZWILLER
-     # - ERIC_HAMERS
+      - EVAN_GUTZWILLER     
       - NEELIMA_CHENNUPATI
 
     triggers:
@@ -21,8 +20,7 @@ resourceMonitors:
     startTimestamp: immediately
     frequency: monthly
     notifyUsers:
-     # - EVAN_GUTZWILLER
-     # - ERIC_HAMERS
+      - EVAN_GUTZWILLER     
       - NEELIMA_CHENNUPATI
 
     triggers:
@@ -38,8 +36,7 @@ resourceMonitors:
     startTimestamp: immediately
     frequency: monthly
     notifyUsers:
-     # - EVAN_GUTZWILLER
-     # - ERIC_HAMERS
+      - EVAN_GUTZWILLER     
       - NEELIMA_CHENNUPATI
 
     triggers:
@@ -55,8 +52,7 @@ resourceMonitors:
     startTimestamp: immediately
     frequency: monthly
     notifyUsers:
-     # - EVAN_GUTZWILLER
-     # - ERIC_HAMERS
+      - EVAN_GUTZWILLER     
       - NEELIMA_CHENNUPATI
 
     triggers:
