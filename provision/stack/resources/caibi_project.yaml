@@ -148,8 +148,8 @@ roleGrants:
       - FIVETRAN_USER   
   - name: "fr_prod_reference_ingestion"
     toUsers:
-      - FIVETRAN_PROD_USER     
-    destroy: true      
+      - FIVETRAN_PROD_REF_USER     
+    #destroy: true      
   - name: "dr_prod_dw_rw"
     toRoles:
       - "fr_prod_reference_ingestion"           
