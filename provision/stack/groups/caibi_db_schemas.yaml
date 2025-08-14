@@ -30,4 +30,6 @@ entries:
     schemas: 
       - CONSOLIDATION
       - DATACONSUMPTION
-      - REFERENCE     
+      - REFERENCE
+      - CAI_PORTAL
+      - CAI_PSATOOLS     
