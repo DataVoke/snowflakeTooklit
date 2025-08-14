@@ -132,6 +132,7 @@ warehouses:
 roles:
   - name: fr_admin
   - name: dr_dev_raw_ro
+  - name: fr_prod_reference_ingestion
 roleGrants:
   - name: fr_admin
     toRoles:
@@ -144,7 +145,13 @@ roleGrants:
       - FIVETRAN_USER      
   - name: "fr_dev_ingestion"
     toUsers:
-      - FIVETRAN_USER              
+      - FIVETRAN_USER   
+  - name: "fr_prod_reference_ingestion"
+    toUsers:
+      - FIVETRAN_PROD_USER         
+  - name: "dr_prod_dw_rw"
+    toRoles:
+      - "fr_prod_reference_ingestion"           
   - name: "fr_prod_ingestion"
     toUsers:
       - FIVETRAN_PROD_USER
