@@ -253,6 +253,7 @@ privilegeGrants:
       - create view
       - create git repository       
       - usage      
+    destroy: true      
   - objectType: schema
     objectName: DEV_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_dev_raw_rw
@@ -265,6 +266,7 @@ privilegeGrants:
       - create view
       - create git repository              
       - usage          
+    destroy: true
   - objectType: schema
     objectName: DEV_BI_DW.CONSOLIDATION
     roleName: dr_dev_dw_rw
@@ -327,7 +329,14 @@ privilegeGrants:
     objectType: all tables in schema
     objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_dev_raw_ro
-
+  - privilege: select
+    objectType: all tables in schema
+    objectName: PROD_BI_DW.CAI_PORTAL
+    roleName: dr_dev_dw_rw
+  - privilege: select
+    objectType: all tables in schema
+    objectName: PROD_BI_DW.CAI_PSATOOLS
+    roleName: dr_dev_dw_rw
 
   - privilege: select
     objectType: tables
@@ -353,6 +362,17 @@ privilegeGrants:
     objectType: tables
     objectName: schema PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_dev_raw_ro
+    future: true     
+
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_DW.CAI_PORTAL
+    roleName: dr_dev_dw_rw
+    future: true 
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_DW.CAI_PSATOOLS
+    roleName: dr_dev_dw_rw
     future: true     
 
   - privilege: select
@@ -461,6 +481,30 @@ privilegeGrants:
       - create git repository
       - usage  
   - objectType: schema
+    objectName: PROD_BI_DW.CAI_PORTAL
+    roleName: dr_prod_dw_rw
+    privilege:
+      - modify
+      - monitor
+      - create table
+      - create dynamic table
+      - create external table
+      - create view
+      - create git repository
+      - usage
+  - objectType: schema
+    objectName: PROD_BI_DW.CAI_PSATOOLS
+    roleName: dr_prod_dw_rw
+    privilege:
+      - modify
+      - monitor
+      - create table
+      - create dynamic table
+      - create external table
+      - create view
+      - create git repository
+      - usage        
+  - objectType: schema
     objectName: PROD_BI_DW.CONSOLIDATION
     roleName: dr_prod_dw_rw
     privilege:
@@ -522,6 +566,14 @@ privilegeGrants:
     objectType: all tables in schema
     objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
+  - privilege: select
+    objectType: all tables in schema
+    objectName: PROD_BI_DW.CAI_PORTAL
+    roleName: dr_prod_dw_rw
+  - privilege: select
+    objectType: all tables in schema
+    objectName: PROD_BI_DW.CAI_PSATOOLS
+    roleName: dr_prod_dw_rw    
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.SAGE_INTACCT
