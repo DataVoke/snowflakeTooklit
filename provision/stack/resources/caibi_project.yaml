@@ -297,16 +297,6 @@ privilegeGrants:
     roleName: dr_dev_raw_ro
   - privilege: select
     objectType: all tables in schema
-    objectName: PROD_BI_RAW.CAI_PROD_PORTAL
-    roleName: dr_dev_raw_ro
-    destroy: true
-  - privilege: select
-    objectType: all tables in schema
-    objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
-    roleName: dr_dev_raw_ro
-    destroy: true    
-  - privilege: select
-    objectType: all tables in schema
     objectName: PROD_BI_DW.CAI_PORTAL
     roleName: dr_dev_dw_rw
   - privilege: select
@@ -329,18 +319,6 @@ privilegeGrants:
     objectName: schema PROD_BI_RAW.UKG_PRO
     roleName: dr_dev_raw_ro
     future: true 
-  - privilege: select
-    objectType: tables
-    objectName: schema PROD_BI_RAW.CAI_PROD_PORTAL
-    roleName: dr_dev_raw_ro
-    future: true 
-    destroy: true    
-  - privilege: select
-    objectType: tables
-    objectName: schema PROD_BI_RAW.CAI_PROD_PSATOOLS
-    roleName: dr_dev_raw_ro
-    future: true     
-    destroy: true
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_DW.CAI_PORTAL
@@ -445,6 +423,7 @@ privilegeGrants:
       - create view
       - create git repository
       - usage
+    destroy: true
   - objectType: schema
     objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
@@ -457,6 +436,7 @@ privilegeGrants:
       - create view
       - create git repository
       - usage  
+    destroy: true      
   - objectType: schema
     objectName: PROD_BI_DW.CAI_PORTAL
     roleName: dr_prod_dw_rw
@@ -539,10 +519,12 @@ privilegeGrants:
     objectType: all tables in schema
     objectName: PROD_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_prod_raw_rw
+    destroy: true    
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
+    destroy: true    
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_DW.CAI_PORTAL
@@ -571,11 +553,13 @@ privilegeGrants:
     objectName: schema PROD_BI_RAW.CAI_PROD_PORTAL
     roleName: dr_prod_raw_rw
     future: true 
+    destroy: true    
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.CAI_PROD_PSATOOLS
     roleName: dr_prod_raw_rw
-    future: true     
+    future: true  
+    destroy: true       
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
