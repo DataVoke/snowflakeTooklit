@@ -282,7 +282,14 @@ privilegeGrants:
     roleName: dr_dev_dw_ro
     privilege:
       - usage
-
+  - privilege: select
+    objectType: all tables in schema
+    objectName: DEV_BI_DW.DATACONSUMPTION
+    roleName: dr_dev_dw_ro
+  - privilege: select
+    objectType: all views in schema
+    objectName: DEV_BI_DW.DATACONSUMPTION
+    roleName: dr_dev_dw_ro
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
@@ -345,6 +352,11 @@ privilegeGrants:
     objectName: schema DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
     future: true
+  - privilege: select
+    objectType: views
+    objectName: schema DEV_BI_DW.DATACONSUMPTION
+    roleName: dr_dev_dw_ro
+    future: true    
   - objectType: schema
     objectName: DEV_BI_DW.REFERENCE
     roleName: dr_dev_dw_ro
