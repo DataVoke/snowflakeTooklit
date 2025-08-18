@@ -423,32 +423,7 @@ privilegeGrants:
       - create view
       - create git repository 
       - usage
-  - objectType: schema
-    objectName: PROD_BI_RAW.CAI_PROD_PORTAL
-    roleName: dr_prod_raw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository
-      - usage
-    destroy: true
-  - objectType: schema
-    objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
-    roleName: dr_prod_raw_rw
-    privilege:
-      - modify
-      - monitor
-      - create table
-      - create dynamic table
-      - create external table
-      - create view
-      - create git repository
-      - usage  
-    destroy: true      
+
   - objectType: schema
     objectName: PROD_BI_DW.CAI_PORTAL
     roleName: dr_prod_dw_rw
@@ -514,7 +489,11 @@ privilegeGrants:
     roleName: dr_prod_dw_ro
     privilege:
       - usage 
-       
+  - privilege: select
+    objectType: all views in schema
+    objectName: PROD_BI_DW.DATACONSUMPTION
+    roleName: dr_prod_dw_ro    
+
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
@@ -527,16 +506,6 @@ privilegeGrants:
     objectType: all tables in schema
     objectName: PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
-  - privilege: select
-    objectType: all tables in schema
-    objectName: PROD_BI_RAW.CAI_PROD_PORTAL
-    roleName: dr_prod_raw_rw
-    destroy: true    
-  - privilege: select
-    objectType: all tables in schema
-    objectName: PROD_BI_RAW.CAI_PROD_PSATOOLS
-    roleName: dr_prod_raw_rw
-    destroy: true    
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_DW.CAI_PORTAL
@@ -562,18 +531,6 @@ privilegeGrants:
     future: true 
   - privilege: select
     objectType: tables
-    objectName: schema PROD_BI_RAW.CAI_PROD_PORTAL
-    roleName: dr_prod_raw_rw
-    future: true 
-    destroy: true    
-  - privilege: select
-    objectType: tables
-    objectName: schema PROD_BI_RAW.CAI_PROD_PSATOOLS
-    roleName: dr_prod_raw_rw
-    future: true  
-    destroy: true       
-  - privilege: select
-    objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_rw
     future: true      
@@ -587,6 +544,11 @@ privilegeGrants:
     objectName: schema PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_ro
     future: true
+  - privilege: select
+    objectType: views
+    objectName: schema PROD_BI_DW.DATACONSUMPTION
+    roleName: dr_prod_dw_ro
+    future: true    
   - objectType: schema
     objectName: PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
