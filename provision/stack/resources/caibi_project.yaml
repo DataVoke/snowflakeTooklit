@@ -559,7 +559,16 @@ privilegeGrants:
     objectName: schema PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
     future: true
-
+ - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_DW.CAI_PORTAL
+    roleName: dr_prod_dw_rw
+    future: true 
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_DW.CAI_PSATOOLS
+    roleName: dr_prod_dw_rw
+    future: true
 #End-Prod Environment  
 
 #Warehouse privileges
