@@ -47,7 +47,7 @@ resourceMonitors:
       - threshold: 110
         action: suspend_immediate
 
-  - name: prod_bi_rm
+  - name: _bi_rm
     creditQuota: 200
     startTimestamp: immediately
     frequency: monthly
@@ -75,7 +75,7 @@ warehouses:
       min_cluster_count: 1
       max_cluster_count: 1
       enable_query_acceleration: false
-      comment: Non-Prod warehouse for transformation process
+      comment: Non- warehouse for transformation process
 
   - name: bi_ingest_wh
     properties:
@@ -88,12 +88,12 @@ warehouses:
       min_cluster_count: 1
       max_cluster_count: 1
       enable_query_acceleration: false
-      comment: Non-Prod warehouse for fivetran ingestion process
+      comment: Non- warehouse for fivetran ingestion process
 
-  - name: prod_bi_transform_wh
+  - name: _bi_transform_wh
     properties:
       warehouse_size: xsmall
-      resource_monitor: prod_bi_transform_rm
+      resource_monitor: _bi_transform_rm
       auto_suspend: 60
       auto_resume: true
       initially_suspended: true
@@ -101,12 +101,12 @@ warehouses:
       min_cluster_count: 1
       max_cluster_count: 1
       enable_query_acceleration: false
-      comment: Prod warehouse for transformation process
+      comment:  warehouse for transformation process
 
-  - name: prod_bi_ingest_wh
+  - name: _bi_ingest_wh
     properties:
       warehouse_size: xsmall
-      resource_monitor: prod_bi_ingest_rm
+      resource_monitor: _bi_ingest_rm
       auto_suspend: 60
       auto_resume: true
       initially_suspended: true
@@ -114,12 +114,12 @@ warehouses:
       min_cluster_count: 1
       max_cluster_count: 1
       enable_query_acceleration: false
-      comment: Prod warehouse for fivetran ingestion process
+      comment:  warehouse for fivetran ingestion process
 
-  - name: prod_bi_wh
+  - name: _bi_wh
     properties:
       warehouse_size: xsmall
-      resource_monitor: prod_bi_rm
+      resource_monitor: _bi_rm
       auto_suspend: 60
       auto_resume: true
       initially_suspended: true
@@ -127,12 +127,12 @@ warehouses:
       min_cluster_count: 1
       max_cluster_count: 1
       enable_query_acceleration: false
-      comment: Prod warehouse for BI users
+      comment:  warehouse for BI users
 
 roles:
   - name: fr_admin
   - name: dr_dev_raw_ro
-  - name: fr_prod_reference_ingestion
+  - name: fr__reference_ingestion
 roleGrants:
   - name: fr_admin
     toRoles:
@@ -146,28 +146,28 @@ roleGrants:
   - name: "fr_dev_ingestion"
     toUsers:
       - FIVETRAN_USER   
-  - name: "fr_prod_reference_ingestion"
+  - name: "fr__reference_ingestion"
     toUsers:
-      - FIVETRAN_PROD_REF_USER     
+      - FIVETRAN__REF_USER     
     #destroy: true      
-  - name: "dr_prod_dw_rw"
+  - name: "dr__dw_rw"
     toRoles:
-      - "fr_prod_reference_ingestion"           
-  - name: "fr_prod_ingestion"
+      - "fr__reference_ingestion"           
+  - name: "fr__ingestion"
     toUsers:
-      - FIVETRAN_PROD_USER
+      - FIVETRAN__USER
   - name: "fr_dev_dbt"
     toUsers:
-      - CICD_SVC_USER_NONPROD      
-  - name: "fr_prod_dbt"
+      - CICD_SVC_USER_NON      
+  - name: "fr__dbt"
     toUsers:
-      - CICD_SVC_USER_PROD
+      - CICD_SVC_USER_
   - name: "fr_dev_analyst"
     toUsers:
-      - SIGMA_SVC_USER_NONPROD     
-  - name: "fr_prod_analyst"
+      - SIGMA_SVC_USER_NON     
+  - name: "fr__analyst"
     toUsers:
-      - SIGMA_SVC_USER_PROD  
+      - SIGMA_SVC_USER_  
   - name: "dr_dev_dw_ro"
     toRoles:
       - "fr_dev_dbt"
@@ -559,7 +559,16 @@ privilegeGrants:
     objectName: schema PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
     future: true
-
+ - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_DW.CAI_PORTAL
+    roleName: dr_prod_dw_rw
+    future: true 
+  - privilege: select
+    objectType: tables
+    objectName: schema PROD_BI_DW.CAI_PSATOOLS
+    roleName: dr_prod_dw_rw
+    future: true
 #End-Prod Environment  
 
 #Warehouse privileges
