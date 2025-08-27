@@ -306,7 +306,6 @@ privilegeGrants:
     objectType: all tables in schema
     objectName: PROD_BI_DW.CAI_PSATOOLS
     roleName: dr_dev_dw_rw
-
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_RAW.SAGE_INTACCT
@@ -332,7 +331,6 @@ privilegeGrants:
     objectName: schema PROD_BI_DW.CAI_PSATOOLS
     roleName: dr_dev_dw_rw
     future: true     
-
   - privilege: select
     objectType: tables
     objectName: schema DEV_BI_DW.CONSOLIDATION
@@ -382,7 +380,6 @@ privilegeGrants:
     roleName: dr_prod_dw_rw
     privilege:
       - modify             
-
   - objectType: schema
     objectName: PROD_BI_RAW.SALESFORCE
     roleName: dr_prod_raw_rw
@@ -419,7 +416,6 @@ privilegeGrants:
       - create view
       - create git repository 
       - usage
-
   - objectType: schema
     objectName: PROD_BI_DW.CAI_PORTAL
     roleName: dr_prod_dw_rw
@@ -489,7 +485,6 @@ privilegeGrants:
     objectType: all views in schema
     objectName: PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_ro    
-
   - privilege: select
     objectType: all tables in schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
@@ -538,7 +533,7 @@ privilegeGrants:
   - privilege: select
     objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
-    roleName: dr_prod_dw_ro
+    roleName: 
     future: true
   - privilege: select
     objectType: views
@@ -552,7 +547,7 @@ privilegeGrants:
       - usage
   - privilege: select
     objectType: tables
-    objectName: schema PROD_BI_DW.CAI_PORTAL
+    objectName: schema PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
     future: true
   - objectType: schema
@@ -562,7 +557,7 @@ privilegeGrants:
       - usage
   - privilege: select
     objectType: tables
-    objectName: schema PROD_BI_DW.REFERENCE
+    objectName: schema PROD_BI_DW.CAI_PORTAL
     roleName: dr_prod_dw_ro
     future: true
   - privilege: select
