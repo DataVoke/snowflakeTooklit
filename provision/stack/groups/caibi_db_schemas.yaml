@@ -15,8 +15,6 @@ entries:
       - SALESFORCE
       - UKG_PRO
       - SAGE_INTACCT
-      - CAI_PROD_PORTAL
-      - CAI_PROD_PSATOOLS
 
   - name: PROD_BI_DW
     schemas: 
