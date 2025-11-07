@@ -134,33 +134,33 @@ roleGrants:
     toRoles:
       - sysadmin
   - name: fr_admin
-    toUsers:      
+    toUsers:
       - EVAN_GUTZWILLER
   - name: "fr_dev_ingestion"
     toUsers:
-      - FIVETRAN_USER      
+      - FIVETRAN_USER
   - name: "fr_dev_ingestion"
     toUsers:
-      - FIVETRAN_USER   
+      - FIVETRAN_USER
   - name: "fr_prod_reference_ingestion"
     toUsers:
-      - FIVETRAN_PROD_REF_USER     
-    #destroy: true      
+      - FIVETRAN_PROD_REF_USER
+    #destroy: true
   - name: "dr_prod_dw_rw"
     toRoles:
-      - "fr_prod_reference_ingestion"           
+      - "fr_prod_reference_ingestion"
   - name: "fr_prod_ingestion"
     toUsers:
       - FIVETRAN_PROD_USER
   - name: "fr_dev_dbt"
     toUsers:
-      - CICD_SVC_USER_NONPROD      
+      - CICD_SVC_USER_NONPROD
   - name: "fr_prod_dbt"
     toUsers:
       - CICD_SVC_USER_PROD
   - name: "fr_dev_analyst"
     toUsers:
-      - SIGMA_SVC_USER_NONPROD     
+      - SIGMA_SVC_USER_NONPROD
   - name: "fr_prod_analyst"
     toUsers:
       - SIGMA_SVC_USER_PROD  
@@ -185,7 +185,7 @@ privilegeGrants:
     objectName: DEV_BI_DW
     roleName: dr_dev_dw_rw
     privilege:
-      - modify             
+      - modify
   - objectType: database
     objectName: DEV_BI_RAW
     roleName: dr_dev_dw_rw
@@ -195,12 +195,12 @@ privilegeGrants:
     objectName: DEV_BI_RAW
     roleName: dr_dev_dw_rw
     privilege:
-      - modify                 
+      - modify
   - objectType: database
     objectName: PROD_BI_RAW
     roleName: dr_dev_dw_ro
     privilege:
-      - usage                       
+      - usage
   - objectType: schema
     objectName: DEV_BI_RAW.SALESFORCE
     roleName: dr_dev_raw_rw
@@ -224,7 +224,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - usage           
+      - usage
   - objectType: schema
     objectName: DEV_BI_RAW.SAGE_INTACCT_LDG
     roleName: dr_dev_raw_rw
@@ -235,8 +235,8 @@ privilegeGrants:
       - create dynamic table
       - create external table
       - create view
-      - create git repository    
-      - usage             
+      - create git repository
+      - usage
   - objectType: schema
     objectName: DEV_BI_DW.CONSOLIDATION
     roleName: dr_dev_dw_rw
@@ -248,7 +248,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - usage      
+      - usage
   - objectType: schema
     objectName: DEV_BI_DW.REFERENCE
     roleName: dr_dev_dw_rw
@@ -260,7 +260,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - usage      
+      - usage
   - objectType: schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_rw
@@ -272,99 +272,115 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - usage      
+      - usage
   - objectType: schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
     privilege:
       - usage
-  - privilege: select
-    objectType: all tables in schema
+      - select
+  - objectType: all tables in schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
-  - privilege: select
-    objectType: all views in schema
+    privilege:
+      - select
+  - objectType: all views in schema
     objectName: DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
-  - privilege: select
-    objectType: all tables in schema
+    privilege:
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
-    roleName: dr_dev_raw_ro       
-  - privilege: select
-    objectType: all tables in schema
+    roleName: dr_dev_raw_ro
+    privilege:
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_RAW.SALESFORCE
     roleName: dr_dev_raw_ro
-  - privilege: select
-    objectType: all tables in schema
+    privilege:
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_RAW.UKG_PRO
     roleName: dr_dev_raw_ro
-  - privilege: select
-    objectType: all tables in schema
+    privilege:
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_DW.CAI_PORTAL
     roleName: dr_dev_dw_rw
-  - privilege: select
-    objectType: all tables in schema
+    privilege:
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_DW.CAI_PSATOOLS
     roleName: dr_dev_dw_rw
-
-  - privilege: select
-    objectType: tables
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_RAW.SAGE_INTACCT
     roleName: dr_dev_raw_ro
-    future: true          
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_RAW.SALESFORCE
     roleName: dr_dev_raw_ro
-    future: true  
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_RAW.UKG_PRO
     roleName: dr_dev_raw_ro
-    future: true 
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_DW.CAI_PORTAL
     roleName: dr_dev_dw_rw
-    future: true 
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_DW.CAI_PSATOOLS
     roleName: dr_dev_dw_rw
-    future: true     
-
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema DEV_BI_DW.CONSOLIDATION
     roleName: dr_dev_dw_rw
-    future: true            
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_rw
-    future: true      
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
     future: true
-  - privilege: select
-    objectType: views
+    privilege:
+      - select
+  - objectType: views
     objectName: schema DEV_BI_DW.DATACONSUMPTION
     roleName: dr_dev_dw_ro
-    future: true    
+    future: true
+    privilege:
+      - select
   - objectType: schema
     objectName: DEV_BI_DW.REFERENCE
     roleName: dr_dev_dw_ro
     privilege:
       - usage
-  - privilege: select
-    objectType: tables
+      - select
+  - objectType: tables
     objectName: schema DEV_BI_DW.REFERENCE
     roleName: dr_dev_dw_ro
     future: true
-
-#End-Dev Environment      
+    privilege:
+      - select
+#End-Dev Environment
 
 #Prod Environment
   - objectType: database
@@ -381,8 +397,7 @@ privilegeGrants:
     objectName: PROD_BI_DW
     roleName: dr_prod_dw_rw
     privilege:
-      - modify             
-
+      - modify
   - objectType: schema
     objectName: PROD_BI_RAW.SALESFORCE
     roleName: dr_prod_raw_rw
@@ -417,9 +432,8 @@ privilegeGrants:
       - create dynamic table
       - create external table
       - create view
-      - create git repository 
+      - create git repository
       - usage
-
   - objectType: schema
     objectName: PROD_BI_DW.CAI_PORTAL
     roleName: dr_prod_dw_rw
@@ -443,7 +457,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - usage        
+      - usage
   - objectType: schema
     objectName: PROD_BI_DW.CONSOLIDATION
     roleName: dr_prod_dw_rw
@@ -467,7 +481,7 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - usage      
+      - usage
   - objectType: schema
     objectName: PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_rw
@@ -479,72 +493,81 @@ privilegeGrants:
       - create external table
       - create view
       - create git repository
-      - usage      
+      - usage
   - objectType: schema
     objectName: PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_ro
     privilege:
-      - usage 
-  - privilege: select
-    objectType: all views in schema
+      - usage
+      - select
+  - objectType: all views in schema
     objectName: PROD_BI_DW.DATACONSUMPTION
-    roleName: dr_prod_dw_ro    
-
-  - privilege: select
-    objectType: all tables in schema
+    roleName: dr_prod_dw_ro
+    privilege:
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_RAW.SAGE_INTACCT
-    roleName: dr_prod_raw_rw       
-  - privilege: select
-    objectType: all tables in schema
+    roleName: dr_prod_raw_rw
+    privilege: 
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_RAW.SALESFORCE
     roleName: dr_prod_raw_rw
-  - privilege: select
-    objectType: all tables in schema
+    privilege: 
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
-  - privilege: select
-    objectType: all tables in schema
+    privilege:
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_DW.CAI_PORTAL
     roleName: dr_prod_dw_rw
-  - privilege: select
-    objectType: all tables in schema
+    privilege:
+      - select
+  - objectType: all tables in schema
     objectName: PROD_BI_DW.CAI_PSATOOLS
-    roleName: dr_prod_dw_rw    
-  - privilege: select
-    objectType: tables
+    roleName: dr_prod_dw_rw
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_RAW.SAGE_INTACCT
     roleName: dr_prod_raw_rw
-    future: true          
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_RAW.SALESFORCE
     roleName: dr_prod_raw_rw
-    future: true  
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_RAW.UKG_PRO
     roleName: dr_prod_raw_rw
-    future: true 
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege: select
+  - objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_rw
-    future: true      
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege: select
+  - objectType: tables
     objectName: schema PROD_BI_DW.CONSOLIDATION
     roleName: dr_prod_dw_rw
-    future: true          
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_ro
     future: true
-  - privilege: select
-    objectType: views
+    privilege:
+      - select
+  - objectType: views
     objectName: schema PROD_BI_DW.DATACONSUMPTION
     roleName: dr_prod_dw_ro
-    future: true    
+    future: true
   - objectType: schema
     objectName: PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
@@ -555,37 +578,44 @@ privilegeGrants:
     roleName: dr_prod_dw_ro
     privilege:
       - usage
-  - privilege: select
-    objectType: tables
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_DW.CAI_PORTAL
     roleName: dr_prod_dw_ro
     future: true
-  - privilege: select
-    objectType: tables
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_DW.REFERENCE
     roleName: dr_prod_dw_ro
     future: true
-  - privilege: select
-    objectType: tables
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_DW.CAI_PORTAL
     roleName: dr_prod_dw_rw
-    future: true 
-  - privilege: select
-    objectType: tables
+    future: true
+    privilege:
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_DW.CAI_PSATOOLS
     roleName: dr_prod_dw_rw
     future: true
+    privilege:
+      - select
   - objectType: schema
     objectName: PROD_BI_DW.CAI_PSATOOLS
     roleName: dr_prod_dw_ro
     privilege:
       - usage
-  - privilege: select
-    objectType: tables
+      - select
+  - objectType: tables
     objectName: schema PROD_BI_DW.CAI_PSATOOLS
     roleName: dr_prod_dw_ro
     future: true
-#End-Prod Environment  
+    privilege:
+      - select
+#End-Prod Environment
 
 #Warehouse privileges
   - objectType: warehouse
@@ -599,7 +629,7 @@ privilegeGrants:
     roleName: dr_dev_raw_ro
     privilege:
       - usage
-      - operate      
+      - operate
   - objectType: warehouse
     objectName: bi_transform_wh
     roleName: dr_dev_dw_rw
@@ -611,7 +641,7 @@ privilegeGrants:
     roleName: dr_dev_dw_ro
     privilege:
       - usage
-      - operate      
+      - operate
   - objectType: warehouse
     objectName: prod_bi_ingest_wh
     roleName: dr_prod_raw_rw
@@ -623,10 +653,10 @@ privilegeGrants:
     roleName: dr_prod_dw_rw
     privilege:
       - usage
-      - operate     
+      - operate
   - objectType: warehouse
     objectName: prod_bi_wh
     roleName: dr_prod_dw_ro
     privilege:
       - usage
-      - operate      
+      - operate
