@@ -88,7 +88,7 @@ warehouses:
 
   - name: prod_bi_transform_wh
     properties:
-      warehouse_size: xsmall
+      warehouse_size: small
       resource_monitor: prod_bi_transform_rm
       auto_suspend: 60
       auto_resume: true
